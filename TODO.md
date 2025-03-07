@@ -1,0 +1,5 @@
+- [] add setup for the package
+- [] intialize the readme with some text
+- [] code in organize manner
+- [] testing
+- [] release it to pypi
