@@ -6,7 +6,10 @@ from caching.core import CachingMechanism
 from template_management.base import TemplateManagement
 from file_management.file_management import FileManagement
 class GitignoreCLI():
-    def __init__(self):
+    def __init__(self, cache_dir, cache_file, cache_expiry):
+        self.cache_dir = cache_dir
+        self.cache_file = cache_file
+        self.cache_expiry = cache_expiry
         self.parser = argparse.ArgumentParser(description='Generate .gitignore files for your projects')
         self.group = self.parser.add_mutually_exclusive_group(required=True)
         self.group.add_argument('--lang', '--name', help='Programming language or technology (e.g., Python, Flutter, Java)')
@@ -16,15 +19,15 @@ class GitignoreCLI():
     
         self.parser.add_argument('--force', '-f', action='store_true', help='Overwrite existing .gitignore without confirmation')
         self.parser.add_argument('--cache', '-c', action='store_true', help='Use cached templates only (no GitHub API calls)')
-        self.template_manager = TemplateManagement()
+        self.template_manager = TemplateManagement(cache_dir, cache_file, cache_expiry)
     def parse_arguments(self):
         return self.parser.parse_args()
     
-    def generate_gitignore(self):
+    def run(self):
         args = self.parse_arguments()
 
         if args.update:
-            caching = CachingMechanism()
+            caching = CachingMechanism(cache_dir=self.cache_dir, cache_file=self.cache_file, cache_expiry=self.cache_expiry)
             caching.update_cache()
             return # Exit after updating the cache
         

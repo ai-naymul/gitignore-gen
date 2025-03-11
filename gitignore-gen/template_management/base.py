@@ -1,11 +1,9 @@
-import os
-import json
 import requests
 from caching.core import CachingMechanism
 
 class TemplateManagement():
-    def __init__(self, cache_mechanism):
-        self.cache_mechanism = CachingMechanism()
+    def __init__(self, cache_dir, cache_file, cache_expiry):
+        self.cache_mechanism = CachingMechanism(cache_dir=cache_dir, cache_file=cache_file, cache_expiry=cache_expiry)
 
     def fetch_templates_from_github(self):
         """Fetch all .gitignore templates from GitHub"""
