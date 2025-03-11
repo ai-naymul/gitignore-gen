@@ -21,3 +21,6 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/ai-naymul/gitignore-gen"
 Issues = "https://github.com/ai-naymul/gitignore-gen/issues"
+
+[project.scripts]
+gitignore-gen = "gitignore_gen.main:main"

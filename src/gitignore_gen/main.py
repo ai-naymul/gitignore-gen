@@ -1,6 +1,6 @@
 import os
 import sys
-from cli import GitignoreCLI
+from gitignore_gen.cli import GitignoreCLI
 
 # Configuration
 CACHE_DIR = os.path.expanduser("~/.gitignore-generator")

@@ -2,9 +2,9 @@ import os
 import json
 import argparse
 import sys
-from caching.core import CachingMechanism
-from template_management.base import TemplateManagement
-from file_management.file_management import FileManagement
+from gitignore_gen.caching.core import CachingMechanism
+from gitignore_gen.template_management.base import TemplateManagement
+from gitignore_gen.file_management.file_management import FileManagement
 class GitignoreCLI():
     def __init__(self, cache_dir, cache_file, cache_expiry):
         self.cache_dir = cache_dir

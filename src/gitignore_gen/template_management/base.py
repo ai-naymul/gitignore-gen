@@ -1,5 +1,5 @@
 import requests
-from caching.core import CachingMechanism
+from gitignore_gen.caching.core import CachingMechanism
 
 class TemplateManagement():
     def __init__(self, cache_dir, cache_file, cache_expiry):

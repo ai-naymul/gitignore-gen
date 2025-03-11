@@ -11,7 +11,8 @@ setup(
     description="A tool to generate .gitignore files for various languages and frameworks",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -19,7 +20,7 @@ setup(
     ],
     python_requires='>=3.6',
     entry_points={
-        'console_scripts': ['gitignore-gen=src.gitignore_gen.main:main'],
+        'console_scripts': ['gitignore-gen=gitignore_gen.main:main'],
     },
     install_requires=[
         'requests',
