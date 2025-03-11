@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="gitignore-gen",
-    version="0.1.0",
+    version="0.1.1",
     author="Naymul Islam",
     author_email="naymul504@gmail.com",
     description="A tool to generate .gitignore files for various languages and frameworks",
