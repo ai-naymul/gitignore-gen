@@ -19,7 +19,7 @@ setup(
     ],
     python_requires='>=3.6',
     entry_points={
-        'console_scripts': ['gitignore-gen=gitignore_gen.__main__:main'],
+        'console_scripts': ['gitignore-gen=src.gitignore_gen.main:main'],
     },
     install_requires=[
         'requests',
