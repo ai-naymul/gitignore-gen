@@ -121,3 +121,45 @@ class TemplateManagement():
         print("  gitignore --lang Python")
         print("  gitignore --multiple Python Node")
     
+    def search_template(self, language, templates):
+        """Search for a specific .gitignore template"""
+        if not templates:
+            return None
+        
+        language = language.lower()
+        
+        # Try exact match
+        if language in templates:
+            return templates[language]
+        
+        # Try match with common prefixes
+        prefixed_keys = [
+            f"global/{language}",
+            f"community/{language}"
+        ]
+        for key in prefixed_keys:
+            if key in templates:
+                return templates[key]
+        
+        # Try partial match at the end
+        for key, template in templates.items():
+            if key.endswith(f"/{language}"):
+                return template
+        
+        # Try partial match anywhere
+        matches = [template for key, template in templates.items() if language in key]
+        if matches:
+            return matches[0]  # Return the first match
+        
+        return None
+
+    # TODO rename the content with template
+    def fetch_gitignore_content(self, url):
+        """Fetch the content of the .gitignore file from the given URL"""
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                return response.text
+            return None
+        except requests.RequestException:
+            return None
