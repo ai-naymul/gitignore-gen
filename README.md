@@ -50,16 +50,56 @@ Before using gitignore-gen, ensure you have:
 
 
 ### Installation
+Install gitignore-gen easily via pip:
+
+```pip install gitignore-gen```
 
 
 ### Usage
+- Generate a .gitignore file for a specific language:
 
+    ```gitignore-gen --lang Python``
+
+
+- List all available templates:
+
+    ```gitignore-gen --list```
+
+- Generate a combined .gitignore for multiple languages:
+
+    ```gitignore-gen --multiple Python Node Java```
+
+- Update local template cache:
+
+```gitignore-gen --update```
+
+- Force overwrite an existing .gitignore file:
+
+    ```gitignore-gen --lang Python --force```
+
+- Use cached templates only (no GitHub API calls):
+
+    ```gitignore-gen --lang Python --cache```
 
 ### Demo
 
 
 
-### Contributing
+### 🤝 Contributing
+Contributions are welcome! Feel free to:
 
+Report bugs
 
-### Acknowledgments
+Suggest features
+
+Submit pull requests
+
+Please read our contributing guidelines before submitting PRs.
+
+### ⚖️ License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### 🙏 Acknowledgments
+GitHub's gitignore templates repository for providing the templates
+
+All contributors and users of this tool
